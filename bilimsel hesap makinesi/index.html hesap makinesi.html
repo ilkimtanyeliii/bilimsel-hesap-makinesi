@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bilimsel Hesap Makinesi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #ffe6f0;
+    }
+
+    h1 {
+      color: #d63384;
+    }
+
+    #display {
+      width: 300px;
+      height: 40px;
+      font-size: 20px;
+      text-align: right;
+      margin-bottom: 10px;
+      border: 2px solid #d63384;
+      border-radius: 8px;
+      padding-right: 10px;
+      background-color: #fff0f5;
+    }
+
+    .button {
+      width: 70px;
+      height: 40px;
+      margin: 5px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff99cc;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #ff66b2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bilimsel Hesap Makinesi</h1>
+  <input type="text" id="display" readonly>
+
+  <br>
+  <button class="button" onclick="press('7')">7</button>
+  <button class="button" onclick="press('8')">8</button>
+  <button class="button" onclick="press('9')">9</button>
+  <button class="button" onclick="press('/')">÷</button>
+  <br>
+  <button class="button" onclick="press('4')">4</button>
+  <button class="button" onclick="press('5')">5</button>
+  <button class="button" onclick="press('6')">6</button>
+  <button class="button" onclick="press('*')">×</button>
+  <br>
+  <button class="button" onclick="press('1')">1</button>
+  <button class="button" onclick="press('2')">2</button>
+  <button class="button" onclick="press('3')">3</button>
+  <button class="button" onclick="press('-')">−</button>
+  <br>
+  <button class="button" onclick="press('0')">0</button>
+  <button class="button" onclick="press('.')">.</button>
+  <button class="button" onclick="calculate()">=</button>
+  <button class="button" onclick="press('+')">+</button>
+  <br>
+  <button class="button" onclick="clearDisplay()">C</button>
+  <button class="button" onclick="press('**2')">x²</button>
+  <button class="button" onclick="press('Math.sqrt(')">√</button>
+  <button class="button" onclick="press('Math.sin(')">sin</button>
+  <br>
+  <button class="button" onclick="press('Math.cos(')">cos</button>
+  <button class="button" onclick="press('Math.tan(')">tan</button>
+  <button class="button" onclick="press('Math.log(')">log</button>
+  <button class="button" onclick="press(')')">)</button>
+
+  <script>
+    function press(val) {
+      document.getElementById("display").value += val;
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+
+    function calculate() {
+      try {
+        const result = eval(document.getElementById("display").value);
+        document.getElementById("display").value = result;
+      } catch (e) {
+        alert("Hatalı ifade!");
+      }
+    }
+  </script>
+</body>
+</html>
+
